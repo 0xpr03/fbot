@@ -57,14 +57,14 @@ public class Converter {
 
 	/***
 	 * Converts a pdf file to html using the command in the DB
-	 * The html files are stored in the config specified folder then
+	 * The html files are stored in the config specified folder
 	 * @param file path of the file to convert
 	 * @return contains the cmd execution output
 	 */
 	public String pdf2html(String file) {
 		try {
 			java.lang.Runtime rt = java.lang.Runtime.getRuntime();
-			// Start a new process: UNIX command ls
+			// Start a new process: UNIX command
 			java.lang.Process p = rt.exec(fbot.getDB().getCmd().replace("%f", file));
 			
 			// wait for process finish or it reaches a timeout
@@ -115,7 +115,7 @@ public class Converter {
 	
 	/***
 	 * Return the amount of sites in a pdf
-	 * using a deprecated iText function
+	 * using a deprecated (working) iText function
 	 * @param file path of the file to use
 	 * @return amount of sites
 	 */
@@ -138,11 +138,11 @@ public class Converter {
 	}
 
 	/***
-	 * Restyles the html resulted by the pdf2html convertion
+	 * Restyles the html resulted by the pdf2html conversion
 	 * So it's usable in the website
 	 * @param file path of the file to be restyled
 	 * @param addNote append "generated in" note
-	 * @param starttime start timefor the note
+	 * @param starttime start time for the note
 	 * @param addTime add pdf time and table header
 	 * @return returns the converted html, debug usage
 	 */
@@ -288,7 +288,7 @@ public class Converter {
 	}
 	
 	/***
-	 * Runns addPDFNote with predefined statements
+	 * Runs addPDFNote with predefined statements
 	 * @param rfile pdf file to be read from
 	 * @param wfile pdf file to be written to
 	 * @return path of the pdf file, null if it failed
@@ -302,7 +302,7 @@ public class Converter {
 	}
 	
 	/***
-	 * Add a note to the bottom of the pdf file
+	 * Add a note to the bottom of a pdf file in italic font
 	 * @param rfile file to be read from
 	 * @param wfile file to be written to
 	 * @param text text to add

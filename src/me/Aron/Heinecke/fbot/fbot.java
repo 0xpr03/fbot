@@ -36,6 +36,10 @@ import me.Aron.Heinecke.fbot.lib.Socket;
 import me.Aron.Heinecke.fbot.lib.cConfig;
 import me.Aron.Heinecke.fbot.lib.cLogger;
 
+/**
+ * Main class
+ * @author Aron Heinecke
+ */
 public class fbot {
 	public static boolean debug = true;
 
@@ -63,7 +67,6 @@ public class fbot {
 		log = new cLogger(log_file_name, sdf);
 		log.info("main", "#######################");
 		log.info("main", "Starting fbot v.2.7.3");
-		log.info("main", "(c) Aron Heinecke 2013-2015 zlib Licensed http://opensource.org/licenses/zlib-license.php");
 		// log.info("main", "DEV-BUILD FOR TESTING PURPOSE!");
 		log.info("main", "support.proctet@t-online.de");
 
@@ -75,9 +78,6 @@ public class fbot {
 
 			conv = new Converter();
 			soc = new Socket();
-
-			// conv.writeContent("D:/Aron/temp/other/output.html",
-			// conv.pdf2html("D:/Aron/temp/other/testfile.pdf"));
 
 			registerExitFunction();
 			registerThreads();
@@ -117,7 +117,6 @@ public class fbot {
 				try {
 					soc.logout();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					log.exception("main", e);
 				}
 				if (info)
@@ -148,7 +147,16 @@ public class fbot {
 	}
 
 	/***
-	 * Get one file is hash summ changed
+	 * Get one file if hashsum changed
+	 * 1) download
+	 * 2) get hash
+	 * 3) write LUC: "last update check" timestamp
+	 * 4) stop if hash is the same
+	 * 5) get number of sites
+	 * 6) set new hash
+	 * 7) convert pdf to html via pdf2html cmd
+	 * 8) restyle the output, as it's very bad and unusable otherwise
+	 * 9) add a timestamp to the pdf
 	 * @param fid file id 0/1 = today/tomorrow
 	 * @param hash hash summ expected
 	 * @return new hash summ
@@ -255,7 +263,7 @@ public class fbot {
 	}
 
 	/***
-	 * Initiates the PDF download for today / tomorrow
+	 * Initiates the PDF download for today- / tomorrow-pdf
 	 * @param id file today/tomorrow 0/1
 	 * @return pdf file path, null if it failed
 	 */

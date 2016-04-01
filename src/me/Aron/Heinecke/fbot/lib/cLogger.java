@@ -26,6 +26,10 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Custom logger
+ * @author Aron Heinecke
+ */
 public class cLogger {
 	private File file;
 	private SimpleDateFormat dateFormat;

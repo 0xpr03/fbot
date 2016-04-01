@@ -25,6 +25,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Properties;
 
+/**
+ * Simple config reader
+ * @author Aron Heinecke
+ */
 public class cConfig {
 	private File file;
 	private String defaults;

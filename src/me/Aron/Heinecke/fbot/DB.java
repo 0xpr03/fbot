@@ -15,12 +15,6 @@
  ******************************************************************************/
 package me.Aron.Heinecke.fbot;
 
-/*
- * (c) Aron Heinecke 2013
- * zlib Licensed http://opensource.org/licenses/zlib-license.php
- * support.proctet@t-online.de
- */
-
 import me.Aron.Heinecke.fbot.lib.cLogger;
 
 import org.apache.http.client.CookieStore;
