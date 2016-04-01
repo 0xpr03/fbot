@@ -167,7 +167,7 @@ public class cConfig {
 	
 	//get property but only print * instead of clean text, if debug enabled
 	/***
-	 * Gets the config entry without loggint he value
+	 * Gets the config entry without loggin the value
 	 * @param key property key to read
 	 * @param defaultValue fallback value in case of missing value
 	 * @return value

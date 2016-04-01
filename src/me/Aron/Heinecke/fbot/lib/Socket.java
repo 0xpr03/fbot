@@ -51,7 +51,10 @@ public class Socket {
 	private HttpClientBuilder hcbuilder;
 	private HttpClientConnectionManager connManager = new BasicHttpClientConnectionManager();
 	
+	private final String UA = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0";
+	
 	/***
+	 * Socket init
 	 * No content compression, fixing download problematics,
 	 * no automatic retries, fixing undocumented loops, causing
 	 * hangups
@@ -84,7 +87,7 @@ public class Socket {
 		request.addHeader("DNT", "1");
 		request.addHeader("Host", "fronter.com");
 		request.addHeader("Referer", "https://fronter.com/giessen/index.phtml");
-		request.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/35.0");
+		request.addHeader("User-Agent", UA);
 
 		//Create context which stores the cookies
 		HttpClientContext context = HttpClientContext.create();
@@ -144,7 +147,7 @@ public class Socket {
 		post.setHeader("DNT", "1");
 		post.setHeader("Host", "fronter.com");
 		post.setHeader("Referer", "https://fronter.com/giessen/index.phtml");
-		post.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/35.0");
+		post.setHeader("User-Agent", UA);
 
 		// set login parameters & fake normal login data
 		List<NameValuePair> urlParameters = new ArrayList<NameValuePair>();
@@ -206,7 +209,7 @@ public class Socket {
 	 * @throws ClientProtocolException, IOException, SSLPeerUnverifiedException, FileNotFoundException 
 	 */
 	public synchronized String downloadFile(String url, String savFile) throws ClientProtocolException, IOException, SSLPeerUnverifiedException, ClientProtocolException, IOException, SSLPeerUnverifiedException, FileNotFoundException {
-//		String url = "https://fronter.com/giessen/links/link.phtml?idesc=1&iid=12841";
+//		https://fronter.com/giessen/links/link.phtml?idesc=1&iid=12841;
 		
 		//Create context and set custom cookies store
 		HttpClientContext context = HttpClientContext.create();
@@ -221,7 +224,7 @@ public class Socket {
 		request.addHeader("Connection", "keep-alive");
 		request.addHeader("DNT", "1");
 		request.addHeader("Host", "fronter.com");
-		request.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/35.0");
+		request.addHeader("User-Agent", UA);
 		//execute request with local context (session-cookie)
 		HttpResponse response = client.execute(request, context);
 
@@ -283,7 +286,7 @@ public class Socket {
 		request.addHeader("DNT", "1");
 		request.addHeader("Host", "fronter.com");
 		request.addHeader("Referer", "https://fronter.com/giessen/personalframe.phtml");
-		request.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/35.0");
+		request.addHeader("User-Agent", UA);
 
 		//execute request with local context
 		HttpResponse response = client.execute(request, context);
@@ -319,7 +322,7 @@ public class Socket {
 		HttpGet request = new HttpGet(url);
 
 		// add request header
-		request.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/35.0");
+		request.addHeader("User-Agent", UA);
 
 		HttpResponse response = client.execute(request);
 

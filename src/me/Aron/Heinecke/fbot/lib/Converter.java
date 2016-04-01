@@ -139,7 +139,7 @@ public class Converter {
 
 	/***
 	 * Restyles the html resulted by the pdf2html conversion
-	 * So it's usable in the website
+	 * So it's usable in the website & one file
 	 * @param file path of the file to be restyled
 	 * @param addNote append "generated in" note
 	 * @param starttime start time for the note
@@ -225,14 +225,7 @@ public class Converter {
 	}
 	
 	public synchronized String loadContent(String file)throws IOException{
-		BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF8"));
-		String str;
-		StringBuilder sb = new StringBuilder();
-		while ((str = in.readLine()) != null) {
-			sb.append(str+"\n");
-		}
-		in.close();
-		return sb.toString();
+		return loadContent(new File(file));
 	}
 	
 	public synchronized boolean writeContent(String file, String content) {
