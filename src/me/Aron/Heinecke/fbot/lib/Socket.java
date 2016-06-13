@@ -113,7 +113,7 @@ public class Socket {
 		String output = result.toString();
 		String reqtoken = output;
 		reqtoken = reqtoken.substring(reqtoken.indexOf("fronter_request_token\" value=") + 30);
-		reqtoken = reqtoken.substring(0, reqtoken.indexOf("\" />"));
+		reqtoken = reqtoken.substring(0, reqtoken.indexOf("\"/>"));
 		
 		String SSOCOM = output;
 		SSOCOM = SSOCOM.substring(SSOCOM.indexOf("SSO_COMMAND_SECHASH\" value=\"") + 28);

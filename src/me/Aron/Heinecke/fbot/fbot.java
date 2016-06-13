@@ -66,7 +66,7 @@ public class fbot {
 		// initialize logger
 		log = new cLogger(log_file_name, sdf);
 		log.info("main", "#######################");
-		log.info("main", "Starting fbot v.2.7.3");
+		log.info("main", "Starting fbot v.2.7.4");
 		// log.info("main", "DEV-BUILD FOR TESTING PURPOSE!");
 		log.info("main", "support.proctet@t-online.de");
 
